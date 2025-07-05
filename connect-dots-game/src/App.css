@@ -1,0 +1,226 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.App h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.instructions {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.instructions h2 {
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.instructions p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.game-board {
+  display: inline-block;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.square_container {
+  position: absolute;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ddd;
+  background: linear-gradient(45deg, #f8f9fa 25%, transparent 25%), 
+              linear-gradient(-45deg, #f8f9fa 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #f8f9fa 75%), 
+              linear-gradient(-45deg, transparent 75%, #f8f9fa 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.square:hover {
+  background-color: rgba(0,123,255,0.1);
+}
+
+.dots {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 1px 3px rgba(255,255,255,0.3);
+  transition: all 0.2s ease;
+  position: absolute;
+  cursor: pointer;
+}
+
+.dots:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 1px 3px rgba(255,255,255,0.3);
+}
+
+.dots.connected {
+  border-color: #28a745;
+  border-width: 4px;
+  transform: scale(0.9);
+  opacity: 0.8;
+  cursor: default;
+}
+
+.dots.connected:hover {
+  transform: scale(0.9);
+}
+
+.game-stats {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  color: #333;
+}
+
+.game-stats p {
+  margin: 8px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.game-stats button {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 5px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+}
+
+.game-stats button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+}
+
+.game-stats button:active {
+  transform: translateY(0);
+}
+
+.completion-message {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+  animation: celebration 0.6s ease-in-out;
+}
+
+.completion-message h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.completion-message p {
+  margin: 10px 0;
+}
+
+.completion-message button {
+  background: linear-gradient(45deg, #ffc107, #fd7e14);
+  margin-top: 10px;
+}
+
+.completion-message button:hover {
+  background: linear-gradient(45deg, #e0a800, #e8590c);
+}
+
+@keyframes celebration {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Level control buttons */
+.App > div:nth-child(3) button {
+  background: linear-gradient(45deg, #6f42c1, #e83e8c);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 0 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(111,66,193,0.3);
+}
+
+.App > div:nth-child(3) button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(111,66,193,0.4);
+}
+
+.App > div:nth-child(3) button:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  .App h1 {
+    font-size: 2rem;
+  }
+  
+  .instructions {
+    padding: 15px;
+  }
+  
+  .game-board {
+    padding: 15px;
+  }
+  
+  /* Keep square and dot sizes consistent with JavaScript calculations */
+  .square {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .dots {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .instructions p {
+    font-size: 1rem;
+  }
+}
+
+/* Canvas styling */
+canvas {
+  border-radius: 8px;
+}
