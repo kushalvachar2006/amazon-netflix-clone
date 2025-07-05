@@ -1,8 +1,4 @@
-(cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF'
-diff --git a/README.md b/README.md
---- a/README.md
-+++ b/README.md
-@@ -0,0 +1,207 @@
+
 +# Website Clones Portfolio 🌟
 +
 +A collection of popular website clones built with HTML and CSS, showcasing front-end development skills and attention to detail in recreating modern web interfaces.
